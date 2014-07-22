@@ -2,10 +2,10 @@
 
 // Strip L (By the y in Anatomy) Pin 6
 // Strip R (By the a in Anatomy) Pin 7
+// Pin 13 goes to tongs, the table is pulled to GND.
+// When tongs contact the table, pin 13 gets pulled low (to GND)
 
 // Neopixel library is found at: https://github.com/adafruit/Adafruit_NeoPixel
-
-// 
 
 // Parameter 1 = number of pixels in strip
 // Parameter 2 = Arduino pin number (most are valid)
