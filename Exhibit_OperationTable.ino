@@ -3,6 +3,8 @@
 Adafruit_NeoPixel stripL = Adafruit_NeoPixel(45, 7, NEO_GRB + NEO_KHZ800);
 Adafruit_NeoPixel stripR = Adafruit_NeoPixel(45, 6, NEO_GRB + NEO_KHZ800);
 
+int state = 0;
+
 // IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
 // pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
 // and minimize distance between Arduino and first pixel.  Avoid connecting
@@ -19,7 +21,7 @@ void setup() {
 }
 
 void loop() {  
-  if (digitalRead(13) == LOW) {setRed();} else {turnOff();}
+  if (digitalRead(13) == LOW) {setRed(); delay(900); state = 0;} else {if(state == 0){fadeOut(1); state = 1;}}
 }
 
 void setRed() {
