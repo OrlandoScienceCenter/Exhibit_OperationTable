@@ -18,6 +18,14 @@ void setup() {
   stripR.show(); // Initialize all pixels to 'off'
   
   pinMode(13, INPUT_PULLUP);
+ /* 
+  int i = 0;
+  do{
+    fadeOut(1);
+    fadeIn(1);
+  }while(i < 8);
+  */
+  delay (5000);
 }
 
 void loop() {  
@@ -50,6 +58,26 @@ void fadeOut(int dTime) {
   uint16_t i;
 
     for(i=255; i>0; i--) {
+      stripL.setBrightness(i);
+      stripR.setBrightness(i);
+      
+      stripL.show();
+      stripR.show();
+    
+      delay(dTime);
+    }
+    
+      stripL.setBrightness(0);
+      stripR.setBrightness(0);
+      
+      stripL.show();
+      stripR.show();
+}
+
+void fadeIn(int dTime) {
+  uint16_t i;
+
+    for(i=0; i>255; i++) {
       stripL.setBrightness(i);
       stripR.setBrightness(i);
       
